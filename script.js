@@ -1,6 +1,10 @@
 const APIURL = 'https://api.github.com/users/'
+const core = require('@actions/core')
+const github = require('@actions/github')
 
-
+     const authToken = core.getInput('token')
+	const octokit = github.getOctokit(authToken)
+    const orgProjectsList = []
 const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
@@ -9,6 +13,21 @@ async function getUser(username) {
     try {
         const { data } = await axios(APIURL + username)
 
+        const orgProjects = await octokit.rest.projects
+		.listForOrg({
+			org: github.context.repo.owner,
+		})
+		.then((result) => {
+			// Push repo ids
+			result.data.forEach((project) => {
+				orgProjectsList.push(project.id)
+               
+			})
+		})
+		.catch((error) => {
+			core.setFailed(error.message)
+		})
+        
         createUserCard(data)
         getRepos(username)
     } catch(err) {
