@@ -28,10 +28,7 @@ async function run() {
 	if (orgProjectsList.length > 0) {
 		orgProjectsList.forEach(async (projectId) => {
       core.info(`Setting project ${projectId} to private...`)
-			await octokit.rest.projects.update({
-				project_id: projectId,
-				private: true,
-			})
+			
 		})
 	}
 }
