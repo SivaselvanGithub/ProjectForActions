@@ -1,0 +1,32 @@
+{
+  "name": "action-private-projects",
+  "version": "1.0.0",
+  "description": "Custom action to enforce project visibility.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "ncc build index.js -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stebje-playground/action-private-projects.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "GitHub Professional Services",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stebje-playground/action-private-projects/issues"
+  },
+  "homepage": "https://github.com/stebje-playground/action-private-projects#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
+  }
+}

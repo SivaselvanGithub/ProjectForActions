@@ -1,0 +1,9 @@
+name: 'Project visibility enforcer'
+description: 'Enforce project visibility for organization repositories'
+inputs:
+  token:
+    required: true
+    description: 'Token with appropriate scope and permissions'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
