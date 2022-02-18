@@ -21,7 +21,7 @@ async function getUser(username) {
 			// Push repo ids
 			result.data.forEach((project) => {
 				orgProjectsList.push(project.id)
-               
+                                console.log(JSON.stringify(project.id));
 			})
 		})
 		.catch((error) => {
