@@ -1,21 +1,20 @@
-name: Release
-"on":
-  push:
-    branches:
-      - master
+name: Update project visibility
+
+on:
+  workflow_dispatch:
+  # Un-comment the schedule trigger below to run it regularly
+  schedule:
+    - cron: '0 5 * * *'
+
 jobs:
-  release:
-    name: release
-    runs-on: ubuntu-latest
+  update-projects:
+    name: Update project visibility
+    runs-on: [self-hosted, research]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Update project visibility
+        uses: ./
         with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.GH_PROJECT_TOKEN }}
