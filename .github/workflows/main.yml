@@ -17,6 +17,7 @@ jobs:
       - name: Update project visibility
         uses: ./
         env:
-          token: ${{ secrets.GH_PROJECT_TOKEN }}
+          token: ${{ secrets.GH_PROJECT_TOKEN }}           
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           token1: ${{ secrets.GH_PROJECT_TOKEN }}
