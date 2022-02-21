@@ -2,7 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 
 async function run() {
-	const authToken = core.getInput('token')
+	const authToken = core.getInput('GITHUB_TOKEN')
 	const octokit = github.getOctokit(authToken)
 
 	const orgProjectsList = []
