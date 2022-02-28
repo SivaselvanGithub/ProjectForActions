@@ -1,11 +1,7 @@
 name: .NET
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+on: [issues]
+  
 jobs:
   build:
     runs-on: self-hosted
